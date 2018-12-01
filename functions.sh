@@ -102,12 +102,6 @@ _TLSCERT_CHECK(){
         local EXPIRE_DATE=$(echo | openssl s_client -connect "${HOST}:${PORT}" -showcerts |& openssl x509 -noout -dates 2> /dev/null| awk -F'=' '/notAfter/{print $2}')
 	echo "${MARKEND}(:$PORT) -> Expire on $EXPIRE_DATE" ;
     done
-    # for PORT in $PORTS {
-    #    local EXPIRE_DATE=$(echo | openssl s_client -connect "${HOST}:${PORT}" -showcerts |& openssl x509 -noout -dates 2> /dev/null| awk -F'=' '/notAfter/{print $2}')
-    #    echo "${MARKEND} Expire on $EXPIRE_DATE" ;
-    # }
-    # local EXPIRE_DATE=$(echo | openssl s_client -connect "${HOST}:${PORT}" -showcerts |& openssl x509 -noout -dates 2> /dev/null| awk -F'=' '/notAfter/{print $2}')
-    # echo -e "TLS Information (:${PORT})\n${MARKEND} Expire on $EXPIRE_DATE"
 }
 
 _PLEX_CHECK(){
