@@ -1,0 +1,44 @@
+##--MISC/FORMAT------
+# HOSTNAME : must be an array
+# IPS : array
+#
+
+
+##--GENERAL-----
+REFRESH_TIME=${REFRESH_TIME:-300}
+
+##--DNS-------
+DNSQUERY='dns_to_test.tld'
+DNSRESP='192.ip.must_be_replied'
+
+##--PORT------
+# PORTWEB
+# PORTSSH
+# PORTPLEX
+# PORTRDP
+######################################################
+
+declare -A HOSTS
+HOSTS=(
+	["localhost/machine0"]="192.168.x.y"
+	["machine1"]="192.168.x.y"
+	["machine2"]="192.168.x.y"
+	["machine3"]="192.168.x.y"
+	# ...
+)
+
+# Colors
+ESC_SEQ="\x1b["
+N=$ESC_SEQ"39;49;00m"
+R=$ESC_SEQ"31;01m"
+O=$ESC_SEQ"241;01m"
+G=$ESC_SEQ"32;01m"
+Y=$ESC_SEQ"33;01m"
+SEP="-> "
+OK="$SEP${G}OK${N}"
+NOK="$SEP${R}DOWN${N}"
+WARN="$SEP${Y}WARN${N}"
+SPACE="\t"
+MARK=' ├─ '
+MARKEND='\t└─ '
+
